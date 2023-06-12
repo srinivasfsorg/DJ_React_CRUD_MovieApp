@@ -1,0 +1,13 @@
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+from rest_framework import status
+from django.shortcuts import render
+from .models import Movie
+from .serializers import MovieSerializer
+from rest_framework import viewsets
+
+
+# Create your views here.
+class MovieViewSet(viewsets.ModelViewSet):
+    serializer_class = MovieSerializer
+    queryset = Movie.objects.all()
